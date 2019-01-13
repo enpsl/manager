@@ -1,6 +1,7 @@
 import React from 'react'
 import menuConfig from './../../config/menu'
-import {Menu, Icon} from "antd";
+import {Menu} from "antd";
+import {Link} from "react-router-dom";
 import "./index.less"
 const SubMenu = Menu.SubMenu;
 export default class NavLeft extends React.Component {
@@ -10,16 +11,19 @@ export default class NavLeft extends React.Component {
             menuTreeNode
         });
     }
-
-    renderMenu = (data)=>{
+    renderMenu =(data)=>{
         return data.map((item)=>{
-            if (item.children) {
-                return (<SubMenu title={item.title} key={item.key}>
-                    {this.renderMenu(item.children)}
-                </SubMenu>)
+            if(item.children){
+                return (
+                    <SubMenu title={item.title} key={item.key}>
+                        { this.renderMenu(item.children)}
+                    </SubMenu>
+                )
             }
-            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
-        });
+            return <Menu.Item title={item.title} key={item.key}>
+                <Link to={item.key}>{item.title}</Link>
+            </Menu.Item>
+        })
     };
     render() {
         return (
