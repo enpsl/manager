@@ -5,12 +5,14 @@ import {Link} from "react-router-dom";
 import "./index.less"
 const SubMenu = Menu.SubMenu;
 export default class NavLeft extends React.Component {
+    state ={};
     componentWillMount() {
         const menuTreeNode = this.renderMenu(menuConfig)
         this.setState({
             menuTreeNode
         });
     }
+    // 菜单渲染
     renderMenu =(data)=>{
         return data.map((item)=>{
             if(item.children){
