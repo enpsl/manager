@@ -103,6 +103,13 @@ module.exports = function(webpackEnv) {
       },
       {
           loader: require.resolve('less-loader'), // compiles Less to CSS
+          //定义主题
+          options: {
+              modules: false,
+              modifyVars: {
+                  "@primary-color": "#f9c700"
+              }
+          }
       }
     ].filter(Boolean);
     if (preProcessor) {
