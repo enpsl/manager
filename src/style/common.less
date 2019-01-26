@@ -1,5 +1,16 @@
 @import './default.less';
 @import './loading.less';
+ul,li{
+  list-style: none;
+}
+.clearfix{
+  &::after{
+    content:' ';
+    clear:both;
+    display: block;
+    visibility: hidden;
+  }
+}
 .container {
   display: flex;
 
@@ -26,6 +37,11 @@
     .ant-table-wrapper{
       margin-left: -1px;
       margin-right: -2px;
+    }
+  }
+  .ant-card{
+    button{
+      margin-right: 10px;
     }
   }
 }
